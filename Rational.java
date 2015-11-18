@@ -1,21 +1,23 @@
-/* Lisa Shi, Alek Shipetich Aleksandar
-APCS1 pd5
-HW32 -- Irrationality Stops Here
-2015 - 11 - 17 */
+/*
+  Lisa Shi, Aleksandar
+  APCS1 pd5
+  HW32 -- Irrationality Stops Here
+  2015 - 11 - 17 
+*/
 
 
 public class Rational{
 
     //Instance variables for the numerator and denominator
-     public static int num;
-    public static int den;
+    private int num;
+    private int den;
 
     //Default constructor (no parameters)
     //Creates a new Rational with the value of 0/1
     public Rational(){
-		num = 0;
-		den = 0;
-     }
+	num = 0;
+	den = 1;
+    }
 
     //    Constructor
     // takes 2 parameters, numerator + denominator
@@ -23,37 +25,39 @@ public class Rational{
     // should print a message and set the number to 0/1
 
     public Rational(int a, int b){
-	if (a == 0 && b == 0) 
-		{num = a;
-		den = b;}
+	if (a == 0 && b == 0) {
+	    num = a;
+	    den = b;
+	}
 	else if (b == 0){
 	    num = 0;
 	    den = 1;
-	    System.out.println("Is irrational");
 	}
 	else {
 	    num = a;
 	    den = b;
-		}
+	}
     }
 
     //    toString
     //returns a string representation of the rational number
-    public  String toString(){
+    public String toString(){
 	return ( num + "/" + den );
     }
 
     //floatValue
     //Returns a floating point value of the number
-    public static double floatValue(){
-	double swag = num/den;
-	return swag;
+    public double floatValue(){
+	double swag = num;
+	double bag = den;
+	
+	return swag/bag;
     }
   
     //multiply
     //Takes Rational object as parameter and multiplies by this Rational object
     //Does not return value
-    public static void multiply(Rational aleks){
+    public  void multiply(Rational aleks){
 	num *= aleks.num;
 	den *= aleks.den;
     }
@@ -61,23 +65,25 @@ public class Rational{
     //divide
     //Takes Rational object as parameter and divides by this Rational object
     //Does not return value
-    public static void divide(Rational aleks){
-    	if (aleks.den == 0){
-    		System.out.println( "error, divide by zero");
+    public void divide(Rational aleks){
+    	if (aleks.num == 0){
+	    System.out.print( "error, divide by zero");
     	}
     	else {
-    num %= aleks.num;
-    den %= aleks.den;}
+	    num *= aleks.den;
+	    den *= aleks.num;	    
+	}
     }
 
     public static void main(String[] args){
 
+	
     	//new rational numbers
     	Rational basic = new Rational(1,1); // 1/1
     	Rational test = new Rational(2,3); // 2/3
     	Rational tester = new Rational(1,2); // 1/2
-    	Rational testing = new Rational(5,0); // 5/0 - invalid
-    	Rational testin = new Rational (0,0); // 0/0 - ????
+    	Rational testing = new Rational(5,0); // 5/0 - invalid - 0/1
+    	Rational testin = new Rational (0,0); // 0/0 - works
 
     	//testing toString
     	System.out.println( basic.toString() );
@@ -86,22 +92,21 @@ public class Rational{
     	System.out.println( testing.toString() );
     	System.out.println( testin.toString() );
 
+	System.out.println("\n" );
+
     	//testing multiply
     	basic.multiply(test);
     	System.out.println( basic ); //should print out 2/3
     	basic.multiply(testing);
-    	System.out.println( basic ); //should print out error
-    	test.multiply(testing);
-    	System.out.println( test); //unsure
 
+	System.out.println("\n" );
+	
     	//testing divide
     	test.divide(tester);
     	System.out.println( test );
-    	test.divide(testin);
-    	System.out.println( test);
-    	test.divide(basic);
-    	System.out.println( test );
+
     	basic.divide(test);
     	System.out.println( basic ); 
+	
     }
 }
