@@ -1,8 +1,8 @@
 /*
-  Lisa Shi, Aleksandar
+  Lisa Shi, Jordan Louie
   APCS1 pd5
-  HW32 -- Irrationality Stops Here
-  2015 - 11 - 17 
+  HW33 -- Do you even add, Bruh?
+  2015 - 11 - 18 
 */
 
 
