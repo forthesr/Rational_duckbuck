@@ -111,6 +111,22 @@ public void subtract(Rational jordans) {
          den = den / reduction;
      }
 
+    //compareTo
+    /*Takes a Rational as a parameter and compares it to the calling object
+    Returns 0 if the two numbers are equal
+    Returns a pos integer if the calling number is larger than the parameter
+    Returns a neg integer if the calling number is smaller than the parameter*/
+    public int compareTo(Rational r){
+	int i = 0;
+	if (floatValue() == r.floatValue())
+	    i = 0;
+	if (floatValue() > r.floatValue())
+	    i = 1;
+       	if (floatValue() < r.floatValue())
+	    i = -1;
+	return i;
+    }
+
 public static void main(String[] args){
 
 //new rational numbers
@@ -119,7 +135,8 @@ Rational test = new Rational(2,3); // 2/3
 Rational tester = new Rational(1,2); // 1/2
 Rational testing = new Rational(5,0); // 5/0 - invalid - 0/1
 Rational testin = new Rational (0,0); // 0/0 - works
-Rational testor = new Rational (3,9); // 3/9 
+Rational testor = new Rational (3,9); // 3/9
+Rational testa = new Rational(2,4); // 2/4
 
 //testing toString
 System.out.println( basic.toString() );
@@ -167,6 +184,10 @@ System.out.println( basic );
 testor.reduce();
 System.out.println( testor );
 
+//testing compareTo
+System.out.println("testing compareTo");
+System.out.println(tester.compareTo(testa)); //should be 0
+System.out.println(test.compareTo(tester)); //should be -1
+System.out.println(tester.compareTo(test)); //should be 1
     }
-
 }
