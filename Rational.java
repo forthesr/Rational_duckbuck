@@ -69,8 +69,14 @@ public void divide(Rational aleks){
     //add
     //Takes one rational object and adds it to current rational object
 public void add(Rational jordans) {
+    if (den == jordans.den){
     num += jordans.num;
-    den += jordans.den;
+    den = jordans.den;} //base case
+    else {
+       int reduction = gcdEW(jordans.den, jordans.num);
+       Rational temp = new Rational((jordans.den % reduction), (jordans.num % reduction));
+       add(temp);
+    } //finding gcd and using recursion
 }
 
     //subtract
@@ -79,12 +85,11 @@ public void subtract(Rational jordans) {
     if (den == jordans.den)
     num -= jordans.num; // base case
                 // denominators are same
-    else {
-        
-
+    else {   int reduction = gcdEW(jordans.den, jordans.num);
+       Rational temp = new Rational((jordans.den % reduction), (jordans.num % reduction));
+       subtract(temp);
     } //finding gcd and using recursion
 }
-
  // gcdEW: finding gcd with euclidean loop
 
     public static int gcdEW(int a, int b) {
