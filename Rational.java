@@ -134,6 +134,16 @@ public class Rational{
 	    i = -1;
 	return i;
     }
+    
+    //equals method
+    //checks if the two rationals are equal after reduction/simplification
+    public boolean equals(Rational o) {
+		Rational a = new Rational(this.num, this.den);
+		Rational b = new Rational(o.num, o.den);
+		a.reduce();
+		b.reduce();
+		return (a.num == b.num && a.den == b.den);
+	}
 
     public static void main(String[] args){
 
@@ -197,6 +207,12 @@ public class Rational{
 	System.out.println(tester.compareTo(testa)); //should be 0
 	System.out.println(test.compareTo(tester)); //should be 1
 	System.out.println(tester.compareTo(test)); //should be -1
+	
+	//Testing equals
+	System.out.println("Testing equals");
+	System.out.println(tester.equals(testa)); //should be true
+	System.out.println(testa.equals(tester)); //should be true
+	System.out.println(testing.equals(tester)); //should be false
     }
 
 }
