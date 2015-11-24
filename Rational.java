@@ -1,8 +1,8 @@
 /*
-  Lisa Shi, Jordan Louie
+  Lisa Shi, Derek Lin
   APCS1 pd5
-  HW33 -- Do you even Add, Bruh?
-  2015 - 11 - 18
+  HW37 -- Rational Equality
+  2015 - 11 - 24
 */
 
 public class Rational{
