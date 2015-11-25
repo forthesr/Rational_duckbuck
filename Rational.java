@@ -1,5 +1,5 @@
 /*
-  Lisa Shi, Derek Lin
+  Warm cup of java -- Lisa Shi, Derek Lin
   APCS1 pd5
   HW37 -- Rational Equality
   2015 - 11 - 24
@@ -137,13 +137,16 @@ public class Rational{
     
     //equals method
     //checks if the two rationals are equal after reduction/simplification
-    public boolean equals(Rational o) {
-		Rational a = new Rational(this.num, this.den);
-		Rational b = new Rational(o.num, o.den);
-		a.reduce();
-		b.reduce();
-		return (a.num == b.num && a.den == b.den);
+    public boolean equals(Object o) {
+	if(o instanceof Rational){
+	    Rational a = new Rational(this.num, this.den);
+	    Rational b = new Rational( ((Rational)o).num, ((Rational)o).den);
+	    a.reduce();
+	    b.reduce();
+	    return (a.num == b.num && a.den == b.den);
 	}
+	return false;
+    }
 
     public static void main(String[] args){
 
@@ -155,6 +158,7 @@ public class Rational{
 	Rational testin = new Rational (0,0); // 0/0 - works
 	Rational testor = new Rational (3,9); // 3/9
 	Rational testa = new Rational(2,4); //2/4
+	Integer huh = new Integer(3);
 
 	//testing toString
 	System.out.println( basic.toString() );
@@ -213,6 +217,8 @@ public class Rational{
 	System.out.println(tester.equals(testa)); //should be true
 	System.out.println(testa.equals(tester)); //should be true
 	System.out.println(testing.equals(tester)); //should be false
+	System.out.println(huh.equals(tester)); //should be false //Overwritten equals() belongs only to Rational class.
+	System.out.println(tester.equals(huh)); //should be false
     }
 
 }
